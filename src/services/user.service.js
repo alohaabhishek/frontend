@@ -37,3 +37,23 @@ export const createUser = async (data) => {
     throw err;
   }
 };
+
+export const updateUser = async (id, data) => {
+  const res = await fetch(`${BASE_URL}/users/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) throw new Error("Failed to update user");
+  return res.json();
+};
+
+export const deleteUser = async (id) => {
+  const res = await fetch(`${BASE_URL}/users/${id}`, {
+    method: "DELETE",
+  });
+
+  if (!res.ok) throw new Error("Failed to delete user");
+  return res.json();
+};
