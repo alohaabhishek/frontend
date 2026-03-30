@@ -1,0 +1,21 @@
+{
+  "family": "fromtend-app-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::591446362002:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "frontend-app-container",
+      "image": "nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "protocol": "tcp"
+        }
+      ]
+    }
+  ]
+}
