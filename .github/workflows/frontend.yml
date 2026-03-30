@@ -52,6 +52,8 @@ jobs:
           task-definition: task-definition.json
           container-name: frontend-app-container
           image: ${{ secrets.ECR_FRONTEND }}:${{ github.sha }}
+          environment-variables: |
+            REACT_APP_API_URL=${{ secrets.REACT_APP_API_URL }}
 
       # 🔥 Deploy updated task definition
       - name: Deploy to ECS
