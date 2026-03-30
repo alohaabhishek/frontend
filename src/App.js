@@ -26,6 +26,14 @@ function App() {
   const handleCreate = async (e) => {
     e.preventDefault();
     try {
+      if(!form.email) {
+        alert("Email is required.")
+        return
+      }
+      if(!form.name) {
+        alert("Name is required.")
+        return
+      }
       await createUser(form);
       setForm({ name: "", email: "" });
       fetchUsers();
@@ -43,6 +51,14 @@ function App() {
   // UPDATE USER
   const handleUpdate = async () => {
     try {
+      if(!editUser.email) {
+        alert("Email is required.")
+        return
+      }
+      if(!editUser.name) {
+        alert("Name is required.")
+        return
+      }
       await updateUser(editUser.id, editUser);
       setIsModalOpen(false);
       setEditUser(null);
